@@ -1,21 +1,21 @@
 package com.example.demo.service;
 
 import com.example.demo.domain.Book;
+import com.example.demo.repository.BookRepository;
 import org.springframework.stereotype.Service;
-import java.util.Arrays;
+
 import java.util.List;
 
 @Service
 public class BookService {
+    private final BookRepository repository;
 
-    // Using this mock list instead of a real database (MariaDB) for Task 4
-    private List<Book> mockBooks = Arrays.asList(
-            new Book(1L, "1984", "George Orwell", "978-0451524935"),
-            new Book(2L, "Dune", "Frank Herbert", "978-0441172719"),
-            new Book(3L, "Clean Code", "Robert C. Martin", "978-0132350884")
-    );
-
-    public List<Book> getAllBooks() {
-        return mockBooks;
+    public BookService(BookRepository repository) {
+        this.repository = repository;
     }
+
+    public List<Book> getAllBooks() { return repository.findAll(); }
+    public Book getBookById(Long id) { return repository.findById(id).orElse(null); }
+    public void saveBook(Book book) { repository.save(book); }
+    public void deleteBook(Long id) { repository.deleteById(id); }
 }
