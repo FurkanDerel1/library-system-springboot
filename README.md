@@ -11,9 +11,12 @@ This project is a Library Management System developed with Spring Boot and integ
  Technologies Used
 - Language: Java 17
 - Framework: Spring Boot 4.0.6
-- Template Engine: Spring Data JPA & Hibernate
+- Template Engine: Thymeleaf
 - Frontend: Thymeleaf
-- Build Tool: Docker & MariaDB
+- Build Tool: Gradle
+- Database : MariaDB
+- Containerization: Docker
+- Data Access: Spring Data JPA & Hibernate
 
  How to Run
 1. Clone the repository: 
